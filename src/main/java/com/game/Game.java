@@ -13,13 +13,13 @@ public class Game {
      * @param args
      */
     public static void main(String[] args) {
-        Player player1 = new Player();
-        Player player2 = new Player();
-        String messageReceivedFromPlayer2 = player1.sendMessage(player2, "Hello, i am player1, what is my message counter ");
-        String messageReceivedFromPlayer1 = player2.sendMessage(player1, "Hello, i am player2, what is my message counter ");
+        Messenger player1 = new Messenger("initiator");
+        Messenger player2 = new Messenger("player2");
+        String messageReceivedFromPlayer2 = player1.sendMessage(player2, "Hello, i am "+player1.getName()+", what is my message counter ");
+        String messageReceivedFromPlayer1 = player2.sendMessage(player1, "Hello, i am "+player2.getName()+", what is my message counter ");
         System.out.println("Message sent to player2, message received: " + messageReceivedFromPlayer2);
-        messageReceivedFromPlayer2 = player1.sendMessage(player2, "Hello, i am player1, what is my message counter ");
+        messageReceivedFromPlayer2 = player1.sendMessage(player2, "Hello, i am "+player1.getName()+", what is my message counter ");
         System.out.println("Message sent to player2, message received: " + messageReceivedFromPlayer2);
-        System.out.println("essage sent to player1, message received: " + messageReceivedFromPlayer1);
+        System.out.println("Message sent to player1, message received: " + messageReceivedFromPlayer1);
     }
 }

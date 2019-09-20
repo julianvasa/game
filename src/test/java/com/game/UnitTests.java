@@ -3,7 +3,6 @@ package com.game;
 import com.ginsberg.junit.exit.ExpectSystemExit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -21,8 +20,8 @@ public class UnitTests {
      */
     @BeforeEach
    public void initialization() {
-        initiator = new Player();
-        player2 = new Player();
+        initiator = new Messenger("initiator");
+        player2 = new Messenger("player2");
     }
 
     /**

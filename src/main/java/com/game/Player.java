@@ -1,40 +1,23 @@
 package com.game;
 
-import java.util.HashMap;
-
-/**
- * This class represents a player which is able to send and receive message with other players
- * @author Julian Vasa
- */
-public class Player {
+public interface Player {
     /**
-     * Keep track of received messages for each other player
+     * @return the player name
      */
-    private final HashMap<Player, Integer> receivedMessages = new HashMap<>();
-
-    /**
-     * Sends a message to another player
-     * @param otherPlayer call receiveMessage on otherPlayer
-     * @param message  the message sent to the other player
-     * @return returns message + counter (messages sent to otherPlayer)
-     */
-    public String sendMessage(Player otherPlayer, String message) {
-        return otherPlayer.receiveMessage(this, message);
-    }
+    public String getName();
+        /**
+         * Sends a message to another player
+         * @param toPlayer a reference to the other player
+         * @param message  the message sent to the other player
+         * @return returns the reply from the other player
+         */
+    public String sendMessage(Player toPlayer, String message);
 
     /**
      * Receives a message from another player.
-     * If the number of messages received from this player is 10 exit the program gracefully
-     * @param otherPlayer the reference of the other player
+     * @param fromPlayer the reference of the other player
      * @param message   the message received from the other player
-     * @return  returns message + counter (messages received from otherPlayer)
+     * @return  returns a reply to be sent to the sender
      */
-    public String receiveMessage(Player otherPlayer, String message) {
-        Integer counter = receivedMessages.getOrDefault(otherPlayer, 0) + 1;
-        receivedMessages.put(otherPlayer, counter);
-        if (counter == 10) {
-            System.exit(0);
-        }
-        return message + counter;
-    }
+    public String receiveMessage(Player fromPlayer, String message) ;
 }
