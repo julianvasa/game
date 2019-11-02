@@ -1,5 +1,6 @@
 package com.game;
 
+import com.game.api.Player;
 import com.ginsberg.junit.exit.ExpectSystemExit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,8 +21,8 @@ public class UnitTests {
      */
     @BeforeEach
    public void initialization() {
-        initiator = new Messenger("initiator");
-        player2 = new Messenger("player2");
+        initiator = new PlayerImpl("initiator");
+        player2 = new PlayerImpl("player2");
     }
 
     /**
